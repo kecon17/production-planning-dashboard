@@ -18,11 +18,10 @@ import numpy as np
 import pandas as pd
 
 # --- CONFIGURATION ---
-DATA_DIR = r"C:\Users\KENT CONTRERAS\Desktop\KENT\17_WINDSURF\planning\data"
-# MODIFIED: Create an 'output' folder within the current script's directory
-OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
-TIME_STEP_MIN = 15
-START_TIME = time(8, 0)
+DATA_DIR = r"C:\Users\...\planning\data" # Path to the folder containing input Excel files
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output") # Output folder for generated proposals
+TIME_STEP_MIN = 15 # Time granularity in minutes
+START_TIME = time(8, 0) # Workday start time
 
 # ------------------------------
 # IO helpers
@@ -101,6 +100,7 @@ def make_weekly_task_pool(demand_df: pd.DataFrame, times_df: pd.DataFrame, targe
 # ------------------------------
 # Scheduling core
 # ------------------------------
+
 @dataclass
 class Assignment:
     operator: str; product: str; subsystem: str; workcell: str; start: datetime; end: datetime; duration_h: float
@@ -142,7 +142,7 @@ def schedule_day_with_remaining(target_date: date, tasks: pd.DataFrame, training
         
         scheduled_this_task_h = 0.0
         
-        # --- CRITICAL FIX: This loop now correctly breaks down large tasks ---
+        # Prioritize operators with more available time
         for op in sorted(cand_ops, key=lambda o: avail_min_per_op.get(o, 0), reverse=True):
             if scheduled_this_task_h >= remain_h: break
             

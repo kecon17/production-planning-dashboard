@@ -31,6 +31,7 @@ planning/
 │   └── planning_week_YYYYMMDD_proposalN.csv  (Generated files)
 │
 ├── etl.py                  # The backend scheduling and data processing logic.
+├── LICENSE.txt             # MIT License.
 ├── dashboard.py            # The Streamlit frontend application.
 ├── README.md               # This file.
 └── requirements.txt        # Python dependencies.
@@ -86,7 +87,14 @@ pip install -r requirements.txt
 
 ## How to Use
 
-#### 1. Run the Dashboard
+#### 1. Open etl.py and edit DATA_DIR
+
+Change the path:
+```python
+DATA_DIR = r"C:\Users\...\planning\data" # Path to the folder containing input Excel files
+```
+
+#### 2. Run the Dashboard
 
 Open your terminal, make sure your virtual environment is activated, and run the following command from the `planning` directory:
 ```bash
@@ -95,7 +103,7 @@ python -m streamlit run dashboard.py # option 2
 ```
 Your web browser should automatically open with the application running.
 
-#### 2. Application Workflow
+#### 3. Application Workflow
 
 1.  **Configure Availability:** In the sidebar, expand the sections for each day of the week and select the operators who will be available.
 2.  **Generate Proposals:** Click the "Generate Weekly Proposals" button. The ETL process will run in the background. Once complete, the app will refresh.
