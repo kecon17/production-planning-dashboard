@@ -231,7 +231,7 @@ def summarize_demand(year: int, month: int) -> pd.DataFrame:
         monthly = int(r["Quantity"])
         per_week = int(np.ceil(monthly / max(1, len(iso_weeks))))
         for ww in iso_weeks:
-            out.append({"Month": month, "Product": r["Product"], "ProductDesc": r.get("ProductDesc", ""),
+            out.append({"Month": month, "Product": r["Product"], "ProductDesc": r.get("DescripcioProjecte", ""),
                         "MonthlyQty": monthly, "Week": ww, "WeeklyQty": per_week})
     return pd.DataFrame(out)
 

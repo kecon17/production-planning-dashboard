@@ -103,6 +103,14 @@ Your web browser should automatically open with the application running.
 4.  **Analyze the Plan:** Review the "Weekly Plan" table, the interactive "Weekly Gantt Chart", and the "Weekly Production Summary" to understand the proposed schedule.
 5.  **Analyze Demand:** Switch to the "Demand" tab to view the underlying monthly and weekly demand data that drives the plan.
 
+## Screenshots
+
+*The main "Planning" tab, showing the weekly schedule and Gantt chart.*
+![Planning View](screenshots/01-planning-view.png)
+
+*The "Demand" tab for analyzing monthly and weekly targets.*
+![Demand Analysis](screenshots/02-demand-analysis.png)
+
 ## Future Enhancements
 
 This tool provides a strong foundation for operational planning. Future enhancements could include:
